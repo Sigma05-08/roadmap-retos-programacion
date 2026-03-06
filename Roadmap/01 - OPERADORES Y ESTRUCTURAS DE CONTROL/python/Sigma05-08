@@ -1,0 +1,89 @@
+'''
+/*
+ * EJERCICIO:
+ * - Crea ejemplos utilizando todos los tipos de operadores de tu lenguaje:
+ *   Aritméticos, lógicos, de comparación, asignación, identidad, pertenencia, bits...
+ *   (Ten en cuenta que cada lenguaje puede poseer unos diferentes)
+ * - Utilizando las operaciones con operadores que tú quieras, crea ejemplos
+ *   que representen todos los tipos de estructuras de control que existan
+ *   en tu lenguaje:
+ *   Condicionales, iterativas, excepciones...
+ * - Debes hacer print por consola del resultado de todos los ejemplos.
+ *
+ * DIFICULTAD EXTRA (opcional):
+ * Crea un programa que imprima por consola todos los números comprendidos
+ * entre 10 y 55 (incluidos), pares, y que no son ni el 16 ni múltiplos de 3.
+ *
+ * Seguro que al revisar detenidamente las posibilidades has descubierto algo nuevo.
+ */
+ '''
+#operadores Aritmeticos
+print(f"suma: 5 + 7 = {5 + 7}")
+print(f"producto: 5 * 7 = {5*7}")
+print(f"resta: 7 - 5 = {7 - 5}")
+print(f"división: 7/5 = {7/5}")
+print(f"modulo: 7 % 5 = {7 % 5}")
+print(f"exponente: 7 ** 2 = {7 ** 2}")
+print(f"División entera: 7//3 = {7//3}")
+#Operadores de comaparación
+print(f"Igualdad: 10 == 3 es {10 == 3}")
+print(f"Desigualdad: 10!=3 es {10 != 3}")
+print(f"Mayor que: 10 > 3 es {10 > 3}")
+print(f"Menor que: 10 < 3 es {10 < 3}")
+print(f"Mayor o igual que: 10 >= 3 es {10 >= 3}")
+print(f"Menor o igual que: 10 <= 3 es {10 <= 3}")
+#Operadores lógicos
+print(f" AND &&: 10 + 3 = 13 and 5 - 3 = 2 es {10 + 3 == 13 and 5 - 3 == 2}")
+print(f"OR ||: 5 + 2 = 7 or 6 - 4 = 3 es {5 + 2 == 7 or 6 - 4 == 3}")
+print(f" NOT: not 10 + 4 == 12 es {not 10 + 4 == 12}")
+#operadores de asignación 
+my_number = 30
+my_number += 1 #suma y asigación
+print(my_number)
+my_number -= 1 #resta y asignación
+print(my_number)
+my_number /= 5  #división y asignación
+print(my_number)
+my_number *= 3  #multiplicación y asignación
+print(my_number)
+my_number %= 5 #modulo y asignación
+print(my_number)
+my_number **= 2 #exponente y asignación
+print(my_number)
+my_number //= 4 #división entera y asignación
+print(my_number)
+#operadores de identidad
+my_number2 = 2.0
+print(f"my_number is my_number2 es {my_number is my_number2}")
+my_number = my_number2
+print(f"my_number is my_number2 es {my_number is my_number2}")
+#operadores de pertenencia
+print(f" 'a' in 'Scarlett' es {'a' in 'scarlett'}")
+print(f" 'd' in 'Scarlett' es {'d' in 'Scarlett'}")
+print(f" not 'd' in 'Scarlett' es { 'd'not in 'Scarlett'}")
+'''
+ESTRUCTURAS
+DE CONTROL
+'''
+#Condicionales
+my_strings = "Lonta"
+if my_strings == "Sigma05-08":
+    print("My_strings es Sigma05-08")
+elif my_strings == "Lonta":
+    print("My_strings es Lonta")
+else:
+    print("My_strings no es Sigma05-08")
+#Iterativas
+for i in range(11):
+    print(i)
+i = 0
+while i <= 10:
+    print(i)
+    i += 1
+#Manejo de excepciones
+try:
+    print(10 / 1)
+except:
+    print("A finalizado el manejo de excepciones")
+finally:
+    print("Ya te puedes ir")
