@@ -1,0 +1,107 @@
+'''
+/*
+ * EJERCICIO:
+ * - Crea ejemplos de funciones básicas que representen las diferentes
+ *   posibilidades del lenguaje:
+ *   Sin parámetros ni retorno, con uno o varios parámetros, con retorno...
+ * - Comprueba si puedes crear funciones dentro de funciones.
+ * - Utiliza algún ejemplo de funciones ya creadas en el lenguaje.
+ * - Pon a prueba el concepto de variable LOCAL y GLOBAL.
+ * - Debes hacer print por consola del resultado de todos los ejemplos.
+ *   (y tener en cuenta que cada lenguaje puede poseer más o menos posibilidades)
+ *
+ * DIFICULTAD EXTRA (opcional):
+ * Crea una función que reciba dos parámetros de tipo cadena de texto y retorne un número.
+ * - La función imprime todos los números del 1 al 100. Teniendo en cuenta que:
+ *   - Si el número es múltiplo de 3, muestra la cadena de texto del primer parámetro.
+ *   - Si el número es múltiplo de 5, muestra la cadena de texto del segundo parámetro.
+ *   - Si el número es múltiplo de 3 y de 5, muestra las dos cadenas de texto concatenadas.
+ *   - La función retorna el número de veces que se ha impreso el número en lugar de los textos.
+ *
+ * Presta especial atención a la sintaxis que debes utilizar en cada uno de los casos.
+ * Cada lenguaje sigue una convenciones que debes de respetar para que el código se entienda.
+ */
+'''
+'''
+Funciones definidas
+por el usuario
+'''
+#simples
+def saludo():
+    print("Hola mundo")
+saludo()
+#Con retorno
+def return_saludo():
+    return "Hola mundo"
+saludo = return_saludo()
+print(saludo)
+#Con argumento
+def arg_greet(greet,name):
+    print(f"{greet} {name}")
+arg_greet("Hola", "Carla")
+# Con argumento predeterminado
+def vende(producto = "gaseosa", cantidad = 5):
+    print(f"{producto} cuesta {cantidad}")
+vende("cocacola", 8)
+vende()
+#Con argumentos y return
+def vende(producto = "gaseosa", cantidad = 5):
+    return f"{producto} cuesta {cantidad}"
+print(vende("inca", 4))
+# Con return con varios valores
+def vende():
+    return "cocacola",5
+print(vende())
+soda, costo = vende()
+print(soda, costo)
+#Con número variable de argumentos
+def greet(*names):
+    for name in names:
+        print(f"Hola {name}")
+greet("Scarlett", "Angelo", "Zoe")
+#Con un número variable de argumentos con palabra clave
+def greet_edad(**names):
+    for name, edad in names.items():
+        print(f"Hola, {name} tienes {edad} años")
+greet_edad(
+    Scarlett = 15,
+    Angelo = 18,
+    Zoe = 10
+)
+'''
+Funciones dentro
+de Funciones
+'''
+def saludo():
+    def confeso():
+        print("Me gustas mucho..")
+    confeso()
+saludo()
+'''
+Funciones del lenguaje(built-in)
+'''
+print(len("Scarlett"))
+print(type("Scarlett"))
+print("scarlett".upper())
+print("scarlett".capitalize())
+"""
+Variables locales
+y Glovales
+"""
+global_x = "Gloval"
+print(global_x)
+def local():
+    local_x = "Local"
+    print(f"{global_x} y {local_x}")
+local()
+def extra(text1, text2):
+    for i in range(1, 101):
+        if i % 3 == 0:
+            print(text1)
+        elif i % 5 == 0:
+            print(text2)
+        elif i % 3 == 0 and i % 5 == 0:
+            print(text1 + text2)
+        else:
+            print(i)
+extra("text1", "text2")
