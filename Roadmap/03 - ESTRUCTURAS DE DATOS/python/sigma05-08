@@ -1,0 +1,125 @@
+"""
+/*
+ * EJERCICIO:
+ * - Muestra ejemplos de creación de todas las estructuras soportadas por defecto
+ *   en tu lenguaje.
+ * - Utiliza operaciones de inserción, borrado, actualización y ordenación.
+ *
+ * DIFICULTAD EXTRA (opcional):
+ * Crea una agenda de contactos por terminal.
+ * - Debes implementar funcionalidades de búsqueda, inserción, actualización
+ *   y eliminación de contactos.
+ * - Cada contacto debe tener un nombre y un número de teléfono.
+ * - El programa solicita en primer lugar cuál es la operación que se quiere realizar,
+ *   y a continuación los datos necesarios para llevarla a cabo.
+ * - El programa no puede dejar introducir números de teléfono no numéricos y con más
+ *   de 11 dígitos (o el número de dígitos que quieras).
+ * - También se debe proponer una operación de finalización del programa.
+ */
+"""
+#LISTAS
+#- Ordenadas -Iteradas
+# -Admite elementos duplicados
+
+my_list = ["pollo a la luz", "Seco de pollo", "Lentejas", "Trigo"]
+print(my_list[0]) #acceso
+print(my_list)
+my_list.append("Arroz Chaufa") #insersión
+print(my_list)
+my_list.remove("Arroz Chaufa") #eliminación
+my_list[1] = "Pizza"
+print(my_list)
+my_list.sort() #Ordenación
+print(my_list)
+#TUPLAS
+#-Ordenadas -Admite duplicados
+#Iterados
+
+my_tuple = ("Scarlett","Javier", "15", "Karate")
+print(my_tuple)
+print(my_tuple[1]) #acceso
+my_tuple = sorted(my_tuple) #cambiar a lista
+print(my_tuple)
+print(type(my_tuple))
+my_tuple = tuple(sorted(my_tuple)) #devolver a tupla
+print(my_tuple)
+print(type(my_tuple))
+
+#SETS/CONJUNTOS: 
+#- No se puede ordenar
+# -Perfecto para guardar infinidades de datos
+# -No admite elementos duplicados
+my_set = {"Scareltt", "15","karate", "Angelo"}
+print(type(my_set))
+my_set.add("Saco Oliveros") #inserción
+my_set.add("Saco Oliveros")
+print(my_set)
+my_set.remove("Saco Oliveros") #eliminación
+print(my_set)
+my_set = sorted(my_set) #transformarlo a lista
+print(my_set)
+print(type(my_set))
+my_set = set(sorted(my_set)) #transformarlo a set
+print(type(my_set))
+
+#DICCIONARIOS
+my_dict = {"name" : "Scarlett", "Surname" : "Javier", "Sport" : "Karate", "age": "15"}
+print(my_dict)
+print(type(my_dict))
+my_dict["email"] = "Scarlett08085@gmail.com" #inserción
+print(my_dict["name"]) #Acceso
+my_dict["age"] = 16 #Actualización
+print(my_dict)
+del my_dict["Surname"]
+print(my_dict)
+my_dict = dict(sorted(my_dict.items())) #Ordenación
+print(my_dict)
+"""
+EXTRA
+"""
+from colorama import Fore, Style, init
+init()
+
+#Mi diccionario
+my_contac = {}
+def my_diary():
+    while True:
+         print(f"{Fore.LIGHTRED_EX}---------------------------------------")
+         print(f"{Fore.YELLOW}           Agenda de Contactos")
+         print(f"{Fore.LIGHTRED_EX}---------------------------------------{Style.RESET_ALL}")
+         print(my_contac)
+         print(f"\n{Fore.RED}1 {Fore.YELLOW}-> Ingresar un contacto\n{Fore.RED}2 {Fore.YELLOW}-> Buscar un contacto\n{Fore.RED}3 {Fore.YELLOW}-> Editar contacto\n{Fore.RED}4 {Fore.YELLOW}-> Salir")
+         operación = (input(f"{Fore.LIGHTRED_EX}Ingresa el númeral de tu operación: {Style.RESET_ALL} "))
+         match operación:       
+             case "1":
+                   
+                   new_contacto = input(f"{Fore.LIGHTRED_EX}Ingresa el nombre de tu contacto:{Style.RESET_ALL} ")
+                   new_phone = input(f"{Fore.LIGHTRED_EX}Ingresa el número de tu contacto:{Style.RESET_ALL} ")
+                   if len(new_phone) == 9 and new_phone.isdigit():
+                     my_contac[new_contacto] = new_phone
+                   else:
+                     print(f"{Fore.LIGHTMAGENTA_EX}⚠️ Ingresa 9 números")  
+             case "2":
+                 contacto = input(f"{Fore.LIGHTRED_EX}Ingresa tu contacto que quieres buscar:{Style.RESET_ALL} ")
+ 
+                 if contacto in my_contac:
+                     print(f"{Fore.LIGHTMAGENTA_EX}el número de telefono de {contacto} es {my_contac[contacto]}")
+                 else:
+                     print(f"{Fore.LIGHTMAGENTA_EX}El contacto {contacto} no existe")
+             case "3":
+                 n_contacto = input(f"{Fore.LIGHTRED_EX}Ingresa el nombre del contacto que quieres editar:{Style.RESET_ALL} ")               
+                 if n_contacto in my_contac:
+                     new_phone = input(f"{Fore.LIGHTRED_EX}Ingrese el nuevo número del contacto: {Style.RESET_ALL} ")
+                     print(f"{Fore.LIGHTMAGENTA_EX}el contacto a sido cambiado a este '{new_contacto}'")
+                     my_contac[n_contacto] = new_phone
+                 else:
+                     print("{Fore.LIGHTMAGENTA_EX}El número de telefono del contacto no existe")
+             case "4":
+                print(f"{Fore.LIGHTMAGENTA_EX}Gracias por haber usado nuestra agenda de contactos ✨")
+                break
+             case _:
+                 print(f"{Fore.LIGHTMAGENTA_EX}Ingrese un numeral válido")
+
+    
+
+my_diary()
